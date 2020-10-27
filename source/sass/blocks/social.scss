@@ -1,0 +1,14 @@
+.social {
+  @include list-reset;
+  width: auto;
+  display: flex;
+  margin-left: auto;
+}
+
+.social__item {
+  margin: 0 5px;
+}
+
+.social__link svg {
+  fill: #a21418;
+}

@@ -1,0 +1,27 @@
+.sorting {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #eed6cd;
+}
+
+.sorting__title {
+  @include reset;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #70635d;
+}
+
+.sorting__select {
+  margin: 0 10px;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #562f2f;
+  background-color: rgba(#867a74, 0.1);
+  border: 1px solid #eed6cd;
+  cursor: pointer;
+}

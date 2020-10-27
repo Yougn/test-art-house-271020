@@ -1,0 +1,61 @@
+.header {
+  padding: 10px;
+  background-color: $bgc;
+}
+
+.header__container {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.header__call {
+  width: 190px;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.header__phone {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #391111;
+  text-decoration: none;
+}
+
+.header__basket {
+  width: 50px;
+}
+
+.header__basket a {
+  position: relative;
+  margin-left: auto;
+  padding-left: 10px;
+  font-size: 10px;
+  color: #a74242;
+  text-decoration: none;
+}
+
+.header__basket a span {
+  position: absolute;
+  right: -5px;
+  bottom: -2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: $white;
+}
+
+.header__svg {
+  fill: #a21418;
+}

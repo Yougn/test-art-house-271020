@@ -1,0 +1,36 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: $bgc;
+}
+
+.navigation__list {
+  @include list-reset;
+  display: flex;
+  width: auto;
+}
+
+.navigation__link {
+  padding: 5px 42px 10px 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #867a74;
+
+  &:hover,
+  &:focus {
+    color: #342f2d;
+  }
+}
+
+.navigation__address {
+  @include list-reset;
+  margin-right: auto;
+  margin-left: auto;
+  width: auto;
+}
+
+.navigation__svg {
+  fill: #a21418;
+}

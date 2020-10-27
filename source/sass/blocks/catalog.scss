@@ -1,0 +1,17 @@
+.catalog__container {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+}
+
+.catalog__list {
+  @include list-reset;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 443px 461px 430px;
+
+  max-width: 870px;
+  margin-bottom: 15px;
+}

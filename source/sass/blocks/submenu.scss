@@ -1,0 +1,38 @@
+.submenu {
+  display: none;
+
+  &--showed {
+    @include list-reset;
+    display: block;
+    padding-left: 20px;
+  }
+}
+
+.submenu__item {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.submenu__link {
+  display: block;
+  padding: 0 5px 0 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 26px;
+  text-align: left;
+  color: #70635d;
+
+  &:hover,
+  &:focus {
+    background-color: #fbd2a4;
+    color: #562f2f;
+  }
+}
+
+.submenu__svg {
+  transform: rotate(-90deg);
+}
+
+.active .submenu__link .submenu__svg {
+  transform: rotate(0deg);
+}

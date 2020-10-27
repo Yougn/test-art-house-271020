@@ -1,0 +1,32 @@
+.sort {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.sort__list {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sort__item {
+  flex-grow: 1;
+  margin: 5px;
+}
+
+.sort__link {
+  display: block;
+  padding: 15px 13px;
+  font-weight: bold;
+  color: #70635d;
+  background-color: #ffefe9;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: #391111;
+  }
+}

@@ -1,0 +1,11 @@
+.show-more__btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #fbd2a4;
+  border: 1px solid #eed6cd;
+
+  &:hover,
+  &:focus {
+    background-color: #f9ba73;
+  }
+}
