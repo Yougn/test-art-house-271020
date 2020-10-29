@@ -1,11 +1,29 @@
 .submenu {
-  display: none;
+  @include list-reset;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.7s ease;
+}
 
-  &--showed {
-    @include list-reset;
-    display: block;
-    padding-left: 20px;
-  }
+.filter__list--category .filter--open .submenu {
+  @include list-reset;
+  max-height: 700px;
+  padding-left: 20px;
+  transition: 0.7s ease;
+}
+
+.submenu__level {
+  @include list-reset;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.7s ease;
+}
+
+.submenu__level--open {
+  @include list-reset;
+  max-height: 500px;
+  padding-left: 20px;
+  transition: 0.7s ease;
 }
 
 .submenu__item {
@@ -31,8 +49,10 @@
 
 .submenu__svg {
   transform: rotate(-90deg);
-}
+  transition: 0.7s ease;
 
-.active .submenu__link .submenu__svg {
-  transform: rotate(0deg);
+  &--open {
+    transform: rotate(0deg);
+    transition: 0.7s ease;
+  }
 }

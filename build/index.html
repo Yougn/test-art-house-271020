@@ -135,15 +135,15 @@
         <form class="filter__form" action="#" method="post">
           <h2 class="filter__title">Категории</h2>
           <nav class="filter__nav">
-            <ul class="filter__list">
-              <li class="filter__item active">
+            <ul class="filter__list filter__list--category">
+              <li class="filter__item">
                 <a class="filter__link" href="#">
                   <svg class="filter__svg" width="15" height="15">
                     <use href="img/sprite.svg#icon-arrow"></use>
                   </svg>
                   Ароматы для дома
                 </a>
-                <ul class="submenu submenu--showed">
+                <ul class="submenu">
                   <li class="submenu__item">
                     <a class="submenu__link" href="#">Арома-спреи</a>
                   </li>
@@ -158,22 +158,22 @@
                   </li>
                 </ul>
               </li>
-              <li class="filter__item active">
+              <li class="filter__item">
                 <a class="filter__link" href="#">
                   <svg class="filter__svg" width="15" height="15">
                     <use href="img/sprite.svg#icon-arrow"></use>
                   </svg>
                   Мебель
                 </a>
-                <ul class="submenu submenu--showed">
-                  <li class="submenu__item submenu__item--sofas active">
+                <ul class="submenu">
+                  <li class="submenu__item">
                     <a class="submenu__link" href="#">
                       <svg class="submenu__svg" width="15" height="15">
                         <use href="img/sprite.svg#icon-arrow"></use>
                       </svg>
                       Диваны
                     </a>
-                    <ul class="submenu submenu--showed">
+                    <ul class="submenu__level">
                       <li class="submenu__item">
                         <a class="submenu__link" href="#">
                           Велюровые диваны
@@ -221,14 +221,14 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="submenu__item submenu__item--tables">
+                  <li class="submenu__item">
                     <a class="submenu__link" href="#">
                       <svg class="submenu__svg" width="15" height="15">
                         <use href="img/sprite.svg#icon-arrow"></use>
                       </svg>
                       Столики журнальные
                     </a>
-                    <ul class="submenu submenu--showed">
+                    <ul class="submenu__level">
                       <li class="submenu__item">
                         <a class="submenu__link" href="#">
                           Металлические столики
@@ -256,6 +256,14 @@
                   </svg>
                   Предметы интерьера
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Аксессуары</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Вазы</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item">
                 <a class="filter__link" href="#">
@@ -264,6 +272,14 @@
                   </svg>
                   Зеркала
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Зеркала</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Декоративные зеркала</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item">
                 <a class="filter__link" href="#">
@@ -272,6 +288,14 @@
                   </svg>
                   Свет
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Бра</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Напольные светильники</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item">
                 <a class="filter__link" href="#">
@@ -280,6 +304,14 @@
                   </svg>
                   Шкуры и меховые изделия
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Овчина Новозеландская</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Меховые подушки</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item">
                 <a class="filter__link" href="#">
@@ -288,6 +320,14 @@
                   </svg>
                   Подарки и сувениры
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Подарки для женщин</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Подарки для мужчин</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item">
                 <a class="filter__link" href="#">
@@ -296,6 +336,14 @@
                   </svg>
                   Посуда
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Кувшины</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Салатники</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item">
                 <a class="filter__link" href="#">
@@ -304,6 +352,14 @@
                   </svg>
                   Текстиль
                 </a>
+                <ul class="submenu">
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Наволочки декоративные</a>
+                  </li>
+                  <li class="submenu__item">
+                    <a class="submenu__link" href="#">Подушки декоративные</a>
+                  </li>
+                </ul>
               </li>
               <li class="filter__item filter__item--offer"><a class="filter__link filter__link--offer" href="#">Лучшее
                   предложение!</a></li>
@@ -507,6 +563,24 @@
 
   </footer>
 
+
+  <!-- Карточка товара -->
+  <template id="card">
+    <article class="card">
+      <a class="card__link" href="#">
+        <img src="img/00000145_1.jpg" width="213" height="213" alt="Подсвечник">
+      </a>
+      <h3 class="card__title">210154 Подсвечник 12х33</h3>
+      <p class="card__material">Хромированный металл</p>
+      <p class="card__price">3 300 ₽</p>
+      <div>
+        <button class="btn card-btn" type="button">В корзину</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="js/menu.js"></script>
+  <script src="js/data.js"></script>
 </body>
 
 </html>

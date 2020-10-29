@@ -65,8 +65,10 @@
 .filter__svg {
   margin-left: 5px;
   transform: rotate(-90deg);
+  transition: 0.7s ease;
 }
 
-.active .filter__link .filter__svg {
+.filter__list--category .filter--open .filter__svg  {
   transform: rotate(0deg);
+  transition: 0.7s ease;
 }

@@ -18,6 +18,12 @@
   }
 }
 
+.card__link img {
+  margin: auto;
+  max-height: 213px;
+  width: auto;
+}
+
 .card__title {
   @include reset;
   padding-bottom: 12px;
