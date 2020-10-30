@@ -1,6 +1,6 @@
 // Реализация меню
 
-let filterSvg = document.querySelectorAll('.filter__svg');
+const filterSvg = document.querySelectorAll('.filter__svg');
 
 if (filterSvg.length > 0) {
   filterSvg.forEach(it => {
@@ -12,7 +12,7 @@ if (filterSvg.length > 0) {
   });
 };
 
-let submenuSvg = document.querySelectorAll('.submenu .submenu__svg');
+const submenuSvg = document.querySelectorAll('.submenu .submenu__svg');
 
 if (submenuSvg.length > 0) {
   submenuSvg.forEach(it => {

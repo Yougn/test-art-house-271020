@@ -1,6 +1,6 @@
-'use strict';
+// Создаю моки
 
-var PHOTOS = ['https://garda-opt.ru/upload/1c_catalog/images_1c/00002846/white/00002846_1.jpg',
+const PHOTOS = ['https://garda-opt.ru/upload/1c_catalog/images_1c/00002846/white/00002846_1.jpg',
   'http://garda-opt.ru/upload/1c_catalog/images_1c/00000145/white/00000145_1.jpg',
   'http://garda-opt.ru/upload/1c_catalog/images_1c/00000146/white/00000146_1.jpg',
   'http://garda-opt.ru/upload/1c_catalog/images_1c/00000147/white/00000147_1.jpg',
@@ -22,7 +22,7 @@ var PHOTOS = ['https://garda-opt.ru/upload/1c_catalog/images_1c/00002846/white/0
   'http://garda-opt.ru/upload/1c_catalog/images_1c/00001740/white/00001740_1.jpg',
   'http://garda-opt.ru/upload/1c_catalog/images_1c/00001741/white/00001741_1.jpg'
 ];
-var TITLES = ['210154 Подсвечник 12х33', '2230183 Подсвечник 15х15х63', '2230184 Подсвечник 15х15х53',
+const TITLES = ['210154 Подсвечник 12х33', '2230183 Подсвечник 15х15х63', '2230184 Подсвечник 15х15х53',
   '2230172 Канделябр 311784', '210178 Подсвечник 13х295', '111105 Подсвечник хрустальный 10х10х23',
   '111405 Подсвечник хрустальный 10х10х31', '160301 Подсвечник хрустальный 6617см', '160301 Подсвечник хрустальный 6х6х24',
   '131050 Подсвечник хрустальный 9х9х32', '150525 Подсвечник хрустальный 6х6х20', '150645 Подсвечник хрустальный 6х6х255',
@@ -30,23 +30,24 @@ var TITLES = ['210154 Подсвечник 12х33', '2230183 Подсвечни�
   '131413 Подсвечник хрустальный 8834', '131612 Подсвечник хрустальный 8х8х43', '110279 Подсвечник хрустальный 12х12х7',
   '211719 Канделябр 501630', '23113034 Канделябр 241133', '990 Подсвечник хрустальный 2994'
 ];
-var MATERIALS = ['хромированный металл', 'хромированный металл, стекло', 'хрусталь', 'металл с медным покрытием'];
-var MIN_PRICE = 500;
-var MAX_PRICE = 10000;
-var NUMBER = 30;
-var CARDS_NUMBER = 9;
-var NEW_CARDS = 3;
+const MATERIALS = ['хромированный металл', 'хромированный металл, стекло', 'хрусталь', 'металл с медным покрытием'];
+const MIN_PRICE = 500;
+const MAX_PRICE = 10000;
+const NUMBER = 30;
+const CARDS_NUMBER = 9;
+const NEW_CARDS = 3;
+const ZERO_CARDS = 0;
 
-var getRandomInteger = function (min, max) {
+const getRandomInteger = function (min, max) {
   return Math.floor(min + Math.random() * (max + 1 - min));
 };
 
-var getRandomElement = function (elements) {
-  var index = getRandomInteger(0, elements.length - 1);
+const getRandomElement = function (elements) {
+  const index = getRandomInteger(0, elements.length - 1);
   return elements[index];
 };
 
-var getObject = function () {
+const getObject = function () {
   return {
     photos: getRandomElement(PHOTOS),
     title: getRandomElement(TITLES),
@@ -55,19 +56,22 @@ var getObject = function () {
   };
 };
 
-var getObjectsList = function (number) {
-  var objectLists = [];
-  for (var i = 0; i < number; i++) {
+const getObjectsList = function (number) {
+  const objectLists = [];
+  for (let i = 0; i < number; i++) {
     objectLists.push(getObject(i));
   };
   return objectLists;
 };
 
-var cards = getObjectsList(NUMBER);
+const cards = getObjectsList(NUMBER);
 
-var cardTemplate = document.querySelector('#card').content.querySelector('.card');
-var renderCard = function (cards) {
-  var card = cardTemplate.cloneNode(true);
+// Отрисовываю карточки товара
+
+const cardTemplate = document.querySelector('#card').content.querySelector('.card');
+
+const renderCard = function (cards) {
+  const card = cardTemplate.cloneNode(true);
   card.querySelector('img').src = cards.photos;
   card.querySelector('.card__title').textContent = cards.title;
   card.querySelector('.card__material').textContent = cards.materials;
@@ -75,56 +79,63 @@ var renderCard = function (cards) {
   return card;
 };
 
-var catalogItems = document.querySelectorAll('.catalog__item');
+const catalogList = document.querySelector('.catalog__list');
+const cardsArray = cards.slice();
 
-var renderCards = function () {
-  for (var i = 0; i < catalogItems.length; i++) {
-    catalogItems[i].innerHTML = '';
-    catalogItems[i].appendChild(renderCard(cards[i]));
+const renderCards = function (cardsArray) {
+  catalogList.innerHTML = '';
+  for (let i = 0; i < CARDS_NUMBER; i++) {
+    catalogList.appendChild(renderCard(cardsArray[i]));
   };
 };
 
-renderCards();
+renderCards(cardsArray);
 
-var buttonShowMore = document.querySelector('.show-more__btn');
-var catalogList = document.querySelector('.catalog__list');
-var currentIndex = 1;
+// Добавляю карточки при клике
 
-buttonShowMore.addEventListener('click', function () {
-  for (var x = 0; x < NEW_CARDS; x++) {
+let currentCardsNumber = cardsArray.length - CARDS_NUMBER;
+let currentIndex = 1;
+
+const clickHandler = function () {
+  for (let y = 0; y < NEW_CARDS; y++) {
+    currentCardsNumber--;
     currentIndex++;
-    catalogList.appendChild(renderCard(cards[x + currentIndex]));
+    catalogList.appendChild(renderCard(cardsArray[y + currentIndex]));
   };
-});
 
-
-
-var getPrises = function () {
-  var cardPrises = document.querySelectorAll('.card__price');
-  var prises = []
-  for (var i = 0; i < cardPrises.length; i++) {
-    prises.push(cardPrises[i].innerHTML)
-  }
-  return prises;
+  if (currentCardsNumber <= ZERO_CARDS) {
+    deleteHandler();
+  };
 };
 
-var prises = getPrises();
-console.log(prises);
+const deleteHandler = function () {
+  buttonShowMore.removeEventListener('click', clickHandler);
+};
 
-var sorting = document.querySelector('#sorting');
+const buttonShowMore = document.querySelector('.show-more__btn');
+buttonShowMore.addEventListener('click', clickHandler);
 
-var sortCards = function () {
-  var typeSorting = sorting.value;
+// Сортирую карточки
 
-  if (typeSorting === 'default') {
-    return;
-  } else if (typeSorting === 'prise-up') {
-    prises.sort(function (a, b) { return a - b });
+const sorting = document.querySelector('#sorting');
+
+const sortCards = function () {
+  let typeSorting = sorting.value;
+  let cardsArray = cards.slice();
+
+  if (typeSorting === 'prise-up') {
+    cardsArray.sort(function (a, b) {
+      return a.price - b.price;
+    });
   } else if (typeSorting === 'prise-down') {
-    prises.sort(function (a, b) { return b - a });
-  }
+    cardsArray.sort(function (a, b) {
+      return b.price - a.price;
+    });
+  };
+  return cardsArray;
 };
 
 sorting.addEventListener('change', function () {
-  sortCards();
+  let resultSortCards = sortCards(cardsArray);
+  renderCards(resultSortCards);
 });

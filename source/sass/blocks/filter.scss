@@ -43,7 +43,7 @@
 
 .filter__link {
   @include reset;
-  display: block;
+  display: flex;
   font-size: 14px;
   font-weight: 600;
   line-height: 26px;
@@ -63,12 +63,12 @@
 }
 
 .filter__svg {
-  margin-left: 5px;
+  padding: 5px;
   transform: rotate(-90deg);
   transition: 0.7s ease;
 }
 
-.filter__list--category .filter--open .filter__svg  {
+.filter__list--category .filter--open .filter__svg {
   transform: rotate(0deg);
   transition: 0.7s ease;
 }

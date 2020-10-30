@@ -4,7 +4,7 @@
       <rect width="71" height="71" fill="white"></rect>
     </clipPath>
   </defs>
-  <symbol id="icon-arrow" viewBox="0 0 15 15">
+  <symbol id="icon-arrow" viewBox="0 0 15 15" width="15" height="15">
     <path d="M2 7.65686L7.65685 13.3137L13.3137 7.65686" stroke="#562F2F" stroke-width="2" stroke-linecap="round" fill="transparent">
     </path>
   </symbol>

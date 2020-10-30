@@ -11,7 +11,7 @@
 
 .card__link {
   display: block;
-  min-height: 200px;
+  min-height: 213px;
 
   &--sixth {
     padding-bottom: 60px;
@@ -62,8 +62,11 @@
   }
 }
 
-.card-btn {
+.card-btn__box {
   margin-top: auto;
+}
+
+.card-btn {
   padding: 10px 20px;
   font-weight: 600;
   line-height: 22px;
