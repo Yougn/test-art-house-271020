@@ -72,8 +72,11 @@ const cardsArray = cards.slice();
 
 const sorting = document.querySelector('#sorting');
 
-const sortCards = function (cardsArray) {
+const sortCards = function () {
   let typeSorting = sorting.value;
+  let cardsArray = cards.slice();
+
+  console.log(cardsArray);
 
   if (typeSorting === 'prise-up') {
     cardsArray.sort(function (a, b) {
