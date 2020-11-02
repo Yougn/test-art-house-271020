@@ -66,6 +66,32 @@ const getObjectsList = function (number) {
 
 const cards = getObjectsList(NUMBER);
 
+// Сортирую данные
+
+const cardsArray = cards.slice();
+
+const sorting = document.querySelector('#sorting');
+
+const sortCards = function (cardsArray) {
+  let typeSorting = sorting.value;
+
+  if (typeSorting === 'prise-up') {
+    cardsArray.sort(function (a, b) {
+      return a.price - b.price;
+    });
+  } else if (typeSorting === 'prise-down') {
+    cardsArray.sort(function (a, b) {
+      return b.price - a.price;
+    });
+  };
+  return cardsArray;
+};
+
+sorting.addEventListener('change', function () {
+  let resultSortCards = sortCards(cardsArray);
+  renderCards(resultSortCards);
+});
+
 // Отрисовываю карточки товара
 
 const cardTemplate = document.querySelector('#card').content.querySelector('.card');
@@ -80,7 +106,6 @@ const renderCard = function (cards) {
 };
 
 const catalogList = document.querySelector('.catalog__list');
-const cardsArray = cards.slice();
 
 const renderCards = function (cardsArray) {
   catalogList.innerHTML = '';
@@ -114,28 +139,3 @@ const deleteHandler = function () {
 
 const buttonShowMore = document.querySelector('.show-more__btn');
 buttonShowMore.addEventListener('click', clickHandler);
-
-// Сортирую карточки
-
-const sorting = document.querySelector('#sorting');
-
-const sortCards = function () {
-  let typeSorting = sorting.value;
-  let cardsArray = cards.slice();
-
-  if (typeSorting === 'prise-up') {
-    cardsArray.sort(function (a, b) {
-      return a.price - b.price;
-    });
-  } else if (typeSorting === 'prise-down') {
-    cardsArray.sort(function (a, b) {
-      return b.price - a.price;
-    });
-  };
-  return cardsArray;
-};
-
-sorting.addEventListener('change', function () {
-  let resultSortCards = sortCards(cardsArray);
-  renderCards(resultSortCards);
-});
